@@ -6,7 +6,7 @@
     <div class="card mb-3">
         <div class="row no-gutters">
             <div class="col-md-4">
-                <img src="{{ $event->image_url }}" alt="{{ $event->title }}" class="card-img">
+                <img src="{{ $event->image }}" alt="{{ $event->title }}" class="card-img">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
@@ -28,6 +28,7 @@
     @endif
     <form action="{{ route('registrations.store', $event) }}" method="POST">
         @csrf
+        <input name="is_paid" type="hidden" value="0"> 
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required>
@@ -43,11 +44,29 @@
             @enderror
         </div>
         <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" name="phone" id="phone" class="form-control @error('phone') is-invalid @enderror" value="{{ old('phone') }}" required>
+            @error('phone')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="form-group">
             <label for="quantity">Quantity</label>
             <input type="number" name="quantity" id="quantity" class="form-control @error('quantity') is-invalid @enderror" value="{{ old('quantity') }}" min="1" max="{{ $event->available_spaces }}" required>
             @error('quantity')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
+        </div>
+        <!-- <div class="form-group">
+            <label for="PaymentMethod">Payment Method</label>
+            <input type="text" name="payment_method" id="quantity" class="form-control @error('quantity') is-invalid @enderror" value="{{ old('quantity') }}" min="1" max="{{ $event->available_spaces }}" required>
+            @error('quantity')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div> -->
+        <div class="form-group">
+            <label for="card-element">Credit or Debit Card:</label>
+            <div id="card-element"></div>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Register</button>

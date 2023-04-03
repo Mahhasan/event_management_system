@@ -12,9 +12,13 @@ class CreateRegistrationsTable extends Migration
             $table->id();
             $table->foreignId('event_id')->constrained()->cascadeOnDelete();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->string('name');
+            $table->string('email');
+            $table->string('phone');
             $table->unsignedInteger('ticket_quantity');
             $table->decimal('total_amount', 8, 2);
             $table->string('payment_intent_id');
+            $table->string('is_paid');
             $table->timestamps();
         });
     }

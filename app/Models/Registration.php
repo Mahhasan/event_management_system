@@ -12,9 +12,13 @@ class Registration extends Model
     protected $fillable = [
         'event_id',
         'user_id',
+        'name',
+        'email',
+        'phone',
         'ticket_quantity',
         'total_amount',
         'payment_intent_id',
+        'string',
     ];
 
     public function user()
