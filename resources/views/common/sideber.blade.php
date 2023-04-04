@@ -4,7 +4,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">AMS</div>
+        <div class="sidebar-brand-text mx-3">EMS</div>
     </a>
 
     <!-- Divider -->
@@ -27,6 +27,13 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
+        <a class="nav-link" href="{{route('events.index')}}">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <span>Event Management</span></a>
+    </li>
+
+
+    <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -36,10 +43,9 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Event Managemen:</h6>
                 <a class="collapse-item" href="{{route('events.index')}}">Events</a>
-                <a class="collapse-item" href="{{action([\App\Http\Controllers\RegistrationController::class, 'index'], [$event])}}">Registrations</a>
             </div>
         </div>
-    </li>
+    </li> -->
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <!-- <li class="nav-item">

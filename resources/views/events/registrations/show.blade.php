@@ -8,10 +8,12 @@
                     <div class="card-header">{{ $registration->name }}'s Registration</div>
 
                     <div class="card-body">
-                        <p><strong>Event Name:</strong> {{ $event->name }}</p>
+                        <p><strong>Event Name:</strong> {{ $event->title }}</p>
                         <p><strong>Name:</strong> {{ $registration->name }}</p>
                         <p><strong>Email:</strong> {{ $registration->email }}</p>
-                        <p><strong>Ticket Price:</strong> {{ $registration->ticket_price }}</p>
+                        <p><strong>Ticket Quantity:</strong> {{ $registration->ticket_quantity }}</p>
+                        <p><strong>SingelTicket Price:</strong> {{ $event->price }}</p>
+                        <p><strong>Total Ticket Price:</strong> {{ $registration->total_amount }}</p>
                         <p><strong>Payment Status:</strong>
                             @if($registration->is_paid)
                                 <span class="badge badge-success">Paid</span>

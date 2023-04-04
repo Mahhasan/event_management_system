@@ -57,14 +57,14 @@
         </div>
         <div class="form-group">
             <label for="image">Image</label>
-            <input type='file' accept="image/png, image/gif, image/jpeg" class="form-control-file" name="image"/>
+            <input type='file' id="inputImage" class="form-control-file" name="image"/>
             @error('image')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Update</button>
-            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
     </form>
 </div>
 @endsection

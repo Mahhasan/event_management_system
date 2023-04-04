@@ -12,7 +12,7 @@
             <tr>
             <th></th>
             <th>Title</th>
-            <th>Description</th>
+            <!-- <th>Description</th> -->
             <th>Start Date</th>
             <th>End Date</th>
             <th>Location</th>
@@ -27,7 +27,7 @@
             <tr>
                 <td><img id="blah" src="/img/{{ $event->image}}" width="240" height="240" class="rounded-circle" alt="your image" /></td>
                 <td>{{ $event->title }}</td>
-                <td>{{ $event->description }}</td>
+                <!-- <td>{{ $event->description }}</td> -->
                 <td>{{ \Carbon\Carbon::parse($event->start_datetime)->format('F j, Y g:i A') }}</td>
                 <td>{{ \Carbon\Carbon::parse($event->end_datetime)->format('F j, Y g:i A') }}</td>
                 <td>{{ $event->location }}</td>
@@ -35,12 +35,12 @@
                 <td>{{ $event->capacity }}</td>
                 <td><a href="{{ route('registrations.create', $event) }}">Register</a></td>
                 <td>
-                    <a href="{{ route('events.show', $event) }}" class="btn btn-info">View</a>
-                    <a href="{{ route('events.edit', $event) }}" class="btn btn-primary">Edit</a>
+                    <a href="{{ route('events.show', $event) }}" class="btn btn-sm btn-info">View</a>
+                    <a href="{{ route('events.edit', $event) }}" class="btn btn-sm btn-primary">Edit</a>
                     <form action="{{ route('events.destroy', $event) }}" method="POST" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this event?')">Delete</button>
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this event?')">Delete</button>
                     </form>
                 </td>
             </tr>

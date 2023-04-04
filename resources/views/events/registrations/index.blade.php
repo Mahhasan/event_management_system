@@ -36,8 +36,8 @@
                                         </td>
                                         <td>
                                             <div class="btn-group" role="group">
-                                                <a href="{{ route('registrations.show', [$event, $registration]) }}" class="btn btn-sm btn-primary">View</a>
-                                                <a href="{{ route('registrations.edit', [$event, $registration]) }}" class="btn btn-sm btn-secondary">Edit</a>
+                                                <a href="{{ route('registrations.show', [$event, $registration]) }}" class="btn btn-sm btn-primary mr-1">View</a>
+                                                <a href="{{ route('registrations.edit', [$event, $registration]) }}" class="btn btn-sm btn-secondary mr-1">Edit</a>
                                                 <form action="{{ route('registrations.destroy', [$event, $registration]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this registration?')">
                                                     @csrf
                                                     @method('DELETE')

@@ -37,7 +37,8 @@ class EventController extends Controller
 
     public function show(Event $event)
     {
-        return view('events.show', compact('event'));
+        $registrations = $event->registrations;
+        return view('events.show', compact('event', 'registrations'));
     }
 
     public function edit(Event $event)
@@ -54,7 +55,12 @@ class EventController extends Controller
             'end_datetime' => 'required|date|after:start_date',
             'location' => 'required',
             'price' => 'required|numeric|min:0',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+
+
+        $input = $request->all();
+
         if ($image = $request->file('image')) {
 
             $destinationPath = 'img/';
@@ -63,11 +69,15 @@ class EventController extends Controller
 
             $image->move($destinationPath, $profileImage);
 
-            $event['image'] = "$profileImage";
+            $input['image'] = "$profileImage";
+
+        }else{
+
+            unset($input['image']);
 
         }
-
-        $event->update($request->all());
+          
+        $event->update($input);
 
         return redirect()->route('events.index')->with('success', 'Event updated successfully.');
     }

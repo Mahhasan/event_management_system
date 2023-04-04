@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 <h1>Create Event</h1>
-    <form action="{{ route('events.store') }}" method="POST">
+    <form action="{{ route('events.store') }}" enctype="multipart/form-data" method="POST">
         @csrf
         <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
         <div class="form-group">

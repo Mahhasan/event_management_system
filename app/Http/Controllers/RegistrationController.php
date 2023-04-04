@@ -35,7 +35,7 @@ class RegistrationController extends Controller
         $registration->email = $request->email;
         $registration->phone = $request->phone;
         $registration->ticket_quantity = $request->quantity;
-        $registration->total_amount = $event->ticket_price * $request->quantity;
+        $registration->total_amount = $event->price * $registration->ticket_quantity;
         $registration->payment_intent_id = 'payment_method';
         $registration->is_paid = $request->is_paid;
 
