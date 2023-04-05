@@ -9,7 +9,6 @@ use Stripe\Stripe;
 
 class RegistrationController extends Controller
 {
-
     public function index(Event $event)
     {
         $registrations = $event->registrations;
@@ -27,6 +26,7 @@ class RegistrationController extends Controller
         $request->validate([
             'email' => ['required', 'string', 'email', 'max:255',],
         ]);
+        
 
         $registration = new Registration();
         $registration->event_id = $event->id;
@@ -36,7 +36,7 @@ class RegistrationController extends Controller
         $registration->phone = $request->phone;
         $registration->ticket_quantity = $request->quantity;
         $registration->total_amount = $event->price * $registration->ticket_quantity;
-        $registration->payment_intent_id = 'payment_method';
+        $registration->payment_intent_id = 'Bkash';
         $registration->is_paid = $request->is_paid;
 
         $registration->save();

@@ -38,3 +38,6 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/events/{event}/registrations/{registration}', [App\Http\Controllers\RegistrationController::class, 'update'])->name('registrations.update');
     Route::delete('/events/{event}/registrations/{registration}', [App\Http\Controllers\RegistrationController::class, 'destroy'])->name('registrations.destroy');
 });
+
+// for Calendar
+Route::get('/event_calendar', [App\Http\Controllers\EventCalendarController::class, 'event_calendar'])->name('event_calendar');

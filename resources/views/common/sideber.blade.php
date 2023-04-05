@@ -31,6 +31,11 @@
             <i class="fa fa-calendar" aria-hidden="true"></i>
             <span>Event Management</span></a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('event_calendar')}}">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <span>Calendar</span></a>
+    </li>
 
 
     <!-- <li class="nav-item">

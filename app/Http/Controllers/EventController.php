@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Event;
 use Illuminate\Http\Request;
 
@@ -25,12 +24,28 @@ class EventController extends Controller
             'title' => 'required',
             'description' => 'required',
             'start_datetime' => 'required|date|after_or_equal:today',
-            'end_datetime' => 'required|date|after:start_date',
+            'end_datetime' => 'required|date|after:start_datetime',
             'location' => 'required',
             'price' => 'required|numeric|min:0',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+        
+        $image = $request->file('image');
+        $new_image = rand() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('img'), $new_image);
 
-        Event::create($request->all());
+        $form_data = array(
+            'user_id' => $request->user_id,
+            'title' => $request->title,
+            'description' => $request->description,
+            'start_datetime' => $request->start_datetime,
+            'end_datetime' => $request->end_datetime,
+            'location' => $request->location,
+            'price' => $request->price,
+            'capacity' => $request->capacity,
+            'image' => $new_image
+        );
+        $data = Event::create($form_data);
 
         return redirect()->route('events.index')->with('success', 'Event created successfully.');
     }
@@ -52,34 +67,26 @@ class EventController extends Controller
             'title' => 'required',
             'description' => 'required',
             'start_datetime' => 'required|date|after_or_equal:today',
-            'end_datetime' => 'required|date|after:start_date',
+            'end_datetime' => 'required|date|after:start_datetime',
             'location' => 'required',
             'price' => 'required|numeric|min:0',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-
 
         $input = $request->all();
 
         if ($image = $request->file('image')) {
-
             $destinationPath = 'img/';
-
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-
             $image->move($destinationPath, $profileImage);
-
             $input['image'] = "$profileImage";
-
         }else{
-
             unset($input['image']);
-
         }
           
         $event->update($input);
 
-        return redirect()->route('events.index')->with('success', 'Event updated successfully.');
+        return redirect()->route('events.show', $event)->with('success', 'Event updated successfully.');
     }
 
     public function destroy(Event $event)

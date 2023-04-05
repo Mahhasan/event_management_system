@@ -2,6 +2,11 @@
 
 @section('content')
     <div class="container">
+    <small class="text-left ml-1"><a href="{{ url()->previous() }}"><i class="fa fa-arrow-left"></i> Get Back</a></small>
+
+        @if(session()->has('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -11,8 +16,9 @@
                         <p><strong>Event Name:</strong> {{ $event->title }}</p>
                         <p><strong>Name:</strong> {{ $registration->name }}</p>
                         <p><strong>Email:</strong> {{ $registration->email }}</p>
+                        <p><strong>Phone:</strong> {{ $registration->phone }}</p>
                         <p><strong>Ticket Quantity:</strong> {{ $registration->ticket_quantity }}</p>
-                        <p><strong>SingelTicket Price:</strong> {{ $event->price }}</p>
+                        <p><strong>Single Ticket Price:</strong> {{ $event->price }}</p>
                         <p><strong>Total Ticket Price:</strong> {{ $registration->total_amount }}</p>
                         <p><strong>Payment Status:</strong>
                             @if($registration->is_paid)
