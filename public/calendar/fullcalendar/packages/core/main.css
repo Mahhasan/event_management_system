@@ -55,7 +55,7 @@ body .fc {
 
 .fc-popover .fc-header .fc-title {
   margin: 0 2px;
-  color: #fff;
+  color: #7107bd!important;
 }
 
 .fc-popover .fc-header .fc-close {
@@ -261,12 +261,12 @@ temporary rendered events).
   font-size: 0.85em;
   line-height: 1.4;
   border-radius: 3px;
-  border: 1px solid #54B4D3;
+  border: 1px solid #fc528b;
 }
 
 .fc-event,
 .fc-event-dot {
-  background-color: #54B4D3;
+  background-color: #fc528b;
   /* default BACKGROUND color */
 }
 
@@ -503,9 +503,10 @@ tr:first-child > td > .fc-day-grid-event {
 /* "more" link that represents hidden events */
 a.fc-more {
   margin: 1px 3px;
-  font-size: 0.85em;
+  font-size: 0.75em;
   cursor: pointer;
   text-decoration: none;
+  color: #7107bd!important;
 }
 
 a.fc-more:hover {
@@ -580,7 +581,7 @@ TODO: more distinction between this file and common.css
 }
 
 .fc-unthemed td.fc-today {
-  background: #9FA6B2;
+  background: #b2bed4;
 }
 
 .fc-unthemed .fc-disabled-day {
@@ -717,14 +718,14 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
 /* "primary" coloring */
 .fc-button-primary {
   color: #fff;
-  background-color: #54B4D3;
-  border-color: #54B4D3;
+  background-color: #fc528b;
+  border-color: #fc528b;
 }
 
 .fc-button-primary:hover {
   color: #fff;
-  background-color: #54B4D3;
-  border-color: #54B4D3;
+  background-color: #fc528b;
+  border-color: #fc528b;
 }
 
 
@@ -736,15 +737,15 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
 
 .fc-button-primary:disabled {
   color: #fff;
-  background-color: #54B4D3;
-  border-color: #54B4D3;
+  background-color: #fc528b;
+  border-color: #fc528b;
 }
 
 .fc-button-primary:not(:disabled):active,
 .fc-button-primary:not(:disabled).fc-button-active {
   color: #fff;
-  background-color: #54B4D3;
-  border-color: #54B4D3;
+  background-color: #fc528b;
+  border-color: #fc528b;
 }
 
 .fc-button-primary:not(:disabled):active:focus,
